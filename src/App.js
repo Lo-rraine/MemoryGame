@@ -1,16 +1,17 @@
 import Background from './components/Background';
+import Settings from './components/Settings';
 
-const base_url = 'https://api.pexels.com/v1/search?'
+import useGetImages from './hooks/useGetImages';
+
 function App() {
-    fetch(base_url, {
-        headers: {
-            Authorization: process.env.REACT_APP_AUTH_KEY
-        }
-    });
+    const images = useGetImages();
+    console.log({images});
+
     return (
         <>
             <Background />
             <h1>Memory Game</h1>
+            <Settings />
         </>
     );
 }
